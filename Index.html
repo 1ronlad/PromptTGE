@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt TGE Estimator - Step 1</title>
+    <link rel="stylesheet" href="style.css"> <!-- We'll create this later -->
+</head>
+<body>
+    <h1>Prompt TGE & Potential Earnings Estimator</h1>
+
+    <p>
+        This tool analyzes your current Prompt points (obtained via API)
+        and combines it with the following considerations to provide simplified
+        potential earnings estimates. Remember, these are estimations based on
+        assumptions and not financial guarantees.
+    </p>
+
+    <h2>Key Considerations & Assumptions:</h2>
+    <ul>
+        <li>Total Prompt Tokens: 1 Billion</li>
+        <li>Total Prompt Tokens Allocated for Cachers: 400 Million</li>
+        <li>Assumed TGE (Token Generation Event) Unlock Percentage: 25%</li>
+        <li>Total Tokens Disbursed *at* TGE: 100 Million (25% of 400 Million)</li>
+        <li>Assumed post-TGE monthly Prompt points contribute to potential future monthly token drops (details TBD by the project).</li>
+        <li>Assumed tokens (both at TGE and potentially monthly) are distributed linearly based on points (e.g., Your Points / Total Points * Tokens Available). No tiering or slabs are considered in this simple model.</li>
+    </ul>
+
+     <h2>Enter Your Details:</h2>
+    <form id="wallet-form">
+        <!-- ** NEW INPUT FIELD ADDED HERE ** -->
+        <label for="potentialFdv">Enter Potential Prompt FDV (in Billions $):</label><br>
+        <input type="number" id="potentialFdv" name="potentialFdv" required min="0" step="0.1" placeholder="e.g., 1.5 for $1.5 Billion"><br><br>
+        <!-- ********************************** -->
+
+        <label for="walletAddress">Wallet Address:</label><br>
+        <input type="text" id="walletAddress" name="walletAddress" size="50" required placeholder="Enter your public wallet address (e.g., 0x...)"><br><br>
+
+        <button type="submit">Estimate Earnings</button>
+    </form>
+
+    <div id="loading-indicator" style="display: none;">
+        Fetching data and calculating... Please wait.
+    </div>
+    <div id="error-message" style="color: red; display: none;">
+        <!-- Error messages will appear here -->
+    </div>
+
+    <script src="script.js"></script> <!-- We'll create this later -->
+</body>
+</html
